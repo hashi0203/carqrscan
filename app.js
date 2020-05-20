@@ -38,6 +38,7 @@ var app = new Vue({
         return null;
       }
       for (var scan of scans) {
+        scan = scan.content.replace(/\s+/g, "").split('/');
         var l = scan.length;
         if (l == 6) {
           shakensho['sd'] = scan[1];
@@ -63,14 +64,19 @@ var app = new Vue({
           shakensho['ns'] = scan[7];
         } else if (l == 2) {
           shakensho['zt'] = scan[1];
-        } else if (l == 1 && scan[0].length == 1) {
-          
+        } else if (l == 5 && scan[0].length == 0 && scan[1].length == 1) {
+          shakensho['hm'] = scan[1];
+          shakensho['sb'] = scan[2];
+          shakensho['gk'] = scan[3];
+          shakensho['cs'] = scan[4];
         }
       }
+      console.log(shakensho);
+      return shakensho;
 
-      console.log(scans);
-      console.log(scans[0].content.replace(/\s+/g, "").split('/'));
-      return scans[0].content.replace(/\s+/g, "").split('/')[0];
+      // console.log(scans);
+      // console.log(scans[0].content.replace(/\s+/g, "").split('/'));
+      // return scans[0].content.replace(/\s+/g, "").split('/')[0];
       // var items = [];
       // for (var scan in scans) {
       //   items.concat(scan.content.split('/'));
