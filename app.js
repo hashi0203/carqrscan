@@ -73,15 +73,6 @@ var app = new Vue({
       }
       console.log(shakensho);
       return shakensho;
-
-      // console.log(scans);
-      // console.log(scans[0].content.replace(/\s+/g, "").split('/'));
-      // return scans[0].content.replace(/\s+/g, "").split('/')[0];
-      // var items = [];
-      // for (var scan in scans) {
-      //   items.concat(scan.content.split('/'));
-      // }
-      // return items;
     }
   }
 });
