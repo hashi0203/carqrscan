@@ -37,6 +37,9 @@ var app = new Vue({
       if (scans.length === 0) {
         return null;
       }
+      for (var scan in scans) {
+        
+      }
       console.log(scans);
       console.log(scans[0].content.replace(/\s+/g, "").split('/'));
       return scans[0].content.replace(/\s+/g, "").split('/')[0];
