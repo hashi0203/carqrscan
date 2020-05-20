@@ -30,8 +30,12 @@
           <transition-group name="scans" tag="ul">
             <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</li>
           </transition-group>
+        </section>
+        <section class="shakensho">
+          <h2>Shakensho Content</h2>
           <transition-group name="scans" tag="ul">
-            <li v-for="(value, name) in decode(scans)" :key="name" :title="value">{{ name }}: {{ value }}</li>
+            <li v-for="item in decode(scans)" :key="item[0]" :title="item[0]">
+              <span>{{ item[0] }}: </span><span v-if="item.length >= 2">{{ item[1] }}</span></li>
           </transition-group>
         </section>
       </div>
