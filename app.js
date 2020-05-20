@@ -33,13 +33,16 @@ var app = new Vue({
       this.scanner.start(camera);
     },
     decode: function(scans) {
-      var shakensho = {''};
+      var shakensho = [];
       if (scans.length === 0) {
         return null;
       }
       for (var scan in scans) {
-        
+        if (scans.length == 6) {
+          
+        }        
       }
+
       console.log(scans);
       console.log(scans[0].content.replace(/\s+/g, "").split('/'));
       return scans[0].content.replace(/\s+/g, "").split('/')[0];
