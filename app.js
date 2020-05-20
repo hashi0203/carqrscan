@@ -15,8 +15,8 @@ var app = new Vue({
     Instascan.Camera.getCameras().then(function (cameras) {
       self.cameras = cameras;
       if (cameras.length > 0) {
-        self.activeCameraId = cameras[cameras.0].id;
-        self.scanner.start(cameras[cameras.0]);
+        self.activeCameraId = cameras[0].id;
+        self.scanner.start(cameras[0]);
       } else {
         console.error('No cameras found.');
       }
@@ -31,6 +31,13 @@ var app = new Vue({
     selectCamera: function (camera) {
       this.activeCameraId = camera.id;
       this.scanner.start(camera);
+    },
+    decode: function(scans) {
+      var items = [];
+      for (var scan in scans) {
+        items.concat(scan.content.split('/'));
+      }
+      return items;
     }
   }
 });
