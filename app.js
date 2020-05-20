@@ -33,6 +33,7 @@ var app = new Vue({
       this.scanner.start(camera);
     },
     decode: function(scans) {
+      var shakensho = {''};
       if (scans.length === 0) {
         return null;
       }
