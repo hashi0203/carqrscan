@@ -33,14 +33,39 @@ var app = new Vue({
       this.scanner.start(camera);
     },
     decode: function(scans) {
-      var shakensho = [];
+      var shakensho = {sd: null, kr: null, ym: null, st: null, ks1: null, ks2: null, zmm: null, zmu: null, zum: null, zuu: null, sk: null, ks: null, kh: null, os: null, np: null, no: null, pm: null, hk: null, ns: null, zt: null, hm: null, sb: null, gk: null, cs: null};
       if (scans.length === 0) {
         return null;
       }
-      for (var scan in scans) {
-        if (scans.length == 6) {
+      for (var scan of scans) {
+        var l = scan.length;
+        if (l == 6) {
+          shakensho['sd'] = scan[1];
+          shakensho['kr'] = scan[2];
+          shakensho['ym'] = scan[3];
+          shakensho['st'] = scan[4];
+          shakensho['ks1'] = scan[5];
+        } else if (l == 7 && scan[1] != "" && scan[2] != "") {
+          shakensho['ks2'] = scan[0];
+          shakensho['zmm'] = scan[1];
+          shakensho['zmu'] = scan[2];
+          shakensho['zum'] = scan[3];
+          shakensho['zuu'] = scan[4];
+          shakensho['sk'] = scan[5];
+        } else if (l == 8) {
+          shakensho['ks'] = scan[0];
+          shakensho['kh'] = scan[1];
+          shakensho['os'] = scan[2];
+          shakensho['np'] = scan[3];
+          shakensho['no'] = scan[4];
+          shakensho['pm'] = scan[5];
+          shakensho['hk'] = scan[6];
+          shakensho['ns'] = scan[7];
+        } else if (l == 2) {
+          shakensho['zt'] = scan[1];
+        } else if (l == 1 && scan[0].length == 1) {
           
-        }        
+        }
       }
 
       console.log(scans);
