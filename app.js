@@ -33,11 +33,17 @@ var app = new Vue({
       this.scanner.start(camera);
     },
     decode: function(scans) {
-      var items = [];
-      for (var scan in scans) {
-        items.concat(scan.content.split('/'));
+      if (scans.length === 0) {
+        return null;
       }
-      return items;
+      console.log(scans);
+      console.log(scans[0].content.replace(/\s+/g, "").split('/'));
+      return scans[0].content.replace(/\s+/g, "").split('/')[0];
+      // var items = [];
+      // for (var scan in scans) {
+      //   items.concat(scan.content.split('/'));
+      // }
+      // return items;
     }
   }
 });
