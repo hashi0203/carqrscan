@@ -29,20 +29,6 @@
             </li>
           </ul>
         </section>
-        <section class="scans">
-          <h2>QRコード (左から)</h2>
-<!--           <ul v-if="scans.length === 0">
-            <li class="empty">No scans yet</li>
-          </ul> -->
-          <transition-group name="scans" tag="ul">
-            <li v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">
-              <span>{{ index+1 }}番目: </span>
-              <span v-if="index === 0 || index === 6 || index === 7">不要です</span>
-              <span v-else-if="qr == 0">スキャンしてください</span>
-              <span v-else>正しくスキャンできました</span>
-            </li>
-          </transition-group>
-        </section>
         <section class="shakensho">
           <h2>Shakensho Content</h2>
           <transition-group name="scans" tag="ul">
@@ -52,6 +38,33 @@
         </section>
       </div>
       <div class="preview-container">
+        <section class="scans">
+          <h2>QRコード (左から)</h2>
+<!--           <ul v-if="scans.length === 0">
+            <li class="empty">No scans yet</li>
+          </ul> -->
+<!--           <transition-group name="scans" tag="ul">
+            <li v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">
+              <span>{{ index+1 }}番目: </span>
+              <span v-if="index === 0 || index === 6 || index === 7">不要です</span>
+              <span v-else-if="qr == 0">スキャンしてください</span>
+              <span v-else>正しくスキャンできました</span>
+            </li>
+          </transition-group> -->
+          <table>
+          <transition-group name="scans" tag="thead">
+            <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">{{ index+1 }}番目</th></tr>
+          </transition-group>
+          <transition-group>
+            <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">
+              <span v-if="index === 0 || index === 6 || index === 7">不要です</span>
+              <span v-else-if="qr == 0">スキャンしてください</span>
+              <span v-else>正しくスキャンできました</span>
+            </td></tr>
+          </transition-group>
+            
+          </table>
+        </section>
         <video id="preview"></video>
       </div>
     </div>
