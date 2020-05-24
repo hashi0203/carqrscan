@@ -83,10 +83,12 @@ body, html {
   display: flex;
   width: 100%;
   overflow: hidden;
+  color: #eceff1;
 }
 .qr-info table {
-    border-collapse: collapse;
-    table-layout: fixed;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #eceff1;
 }
 
 .preview-container {

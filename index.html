@@ -40,7 +40,7 @@
       <div class="col2">
         <div class="qr-info">
           <section class="scans">
-            <h2>QRコード (左から)</h2>
+            <h2 style="padding-left: 20px;">QRコード (左から)</h2>
   <!--           <ul v-if="scans.length === 0">
               <li class="empty">No scans yet</li>
             </ul> -->
@@ -52,17 +52,17 @@
                 <span v-else>正しくスキャンできました</span>
               </li>
             </transition-group> -->
-            <table width="80%">
-              <transition-group name="qrnum" tag="tr">
-                <th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">{{ index+1 }}番目</th>
-              </transition-group>
-              <transition-group name="qrbody" tag="tr">
-                <td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">
+            <table width="80%" align="center">
+              <thead><transition-group name="qrnum">
+                <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" align="center">{{ index+1 }}番目</th></tr>
+              </transition-group></thead>
+              <tbody><transition-group name="qrbody">
+                <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" align="center">
                   <span v-if="index === 0 || index === 6 || index === 7">不要</span>
                   <span v-else-if="qr == 0">未スキャン</span>
                   <span v-else>スキャン済</span>
-                </td>
-              </transition-group>
+                </td></tr>
+              </transition-group></tbody>
             </table>
           </section>
         </div>
