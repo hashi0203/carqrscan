@@ -68,7 +68,14 @@ body, html {
 .empty {
   font-style: italic;
 }
-
+.col2{
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
 .qr-info {
   flex-direction: column;
   align-items: center;
@@ -77,6 +84,11 @@ body, html {
   width: 100%;
   overflow: hidden;
 }
+.qr-info table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
 .preview-container {
   flex-direction: column;
   align-items: center;
