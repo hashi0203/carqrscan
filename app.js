@@ -34,6 +34,8 @@ var app = new Vue({
       this.scanner.start(camera);
     },
     decode: function() {
+      var scans = this.scans;
+      var qrs = this.qrs;
       var shakensho = {sd: ["車台番号打刻位置"], kr: ["型式指定番号,類別区分番号"], ym: ["有効期間の満了する日"], st: ["初度登録年月"], ks1: ["型式"], ks2: ["型式(続き)"], zmm: ["軸重(前前)"], zmu: ["軸重(前後)"], zum: ["軸重(後前)"], zuu: ["軸重(後後)"], sk: ["騒音規制"], ks: ["近接排気騒音規制値"], kh: ["駆動方式"], os: ["オパシメータ測定車"], np: ["NOx・PM測定モード"], no: ["NOx値"], pm: ["PM値"], hk: ["保安基準適用年月日"], ns: ["燃料の種別コード"], zt: ["自動車登録番号"], hm: ["標板の枚数及び大きさ"], sb: ["車台番号"], gk: ["原動機型式"], cs: ["帳票種別"]};
       if (scans.length === 0) {
         return shakensho;
