@@ -52,12 +52,12 @@
                 <span v-else>正しくスキャンできました</span>
               </li>
             </transition-group> -->
-            <table width="80%" align="center">
+            <table width="80%" align="center" border="1">
               <thead><transition-group name="qrnum">
-                <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" align="center">{{ index+1 }}番目</th></tr>
+                <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">{{ index+1 }}番目</th></tr>
               </transition-group></thead>
               <tbody><transition-group name="qrbody">
-                <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" align="center">
+                <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">
                   <span v-if="index === 0 || index === 6 || index === 7">不要</span>
                   <span v-else-if="qr == 0">未スキャン</span>
                   <span v-else>スキャン済</span>

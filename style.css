@@ -89,6 +89,8 @@ body, html {
   border-collapse: collapse;
   table-layout: fixed;
   background-color: #eceff1;
+  border-collapse: collapse;
+  border-color: #607d8b;
 }
 
 .preview-container {
@@ -98,8 +100,4 @@ body, html {
   display: flex;
   width: 100%;
   overflow: hidden;
-}
-
-.shakensho {
-  font-family:"ＭＳ Ｐ明朝";
 }

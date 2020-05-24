@@ -5,7 +5,7 @@ var app = new Vue({
     activeCameraId: null,
     cameras: [],
     scans: [],
-    qrs: [0,0,0,0,0,0,0,0]
+    qrs: [1,0,0,0,0,0,1,1]
   },
   mounted: function () {
     var self = this;
@@ -41,6 +41,7 @@ var app = new Vue({
         return shakensho;
       }
       for (var scan of scans) {
+        // document.getelementById('qr-0').style.opacity = 0.4;
         scan = scan.content.replace(/\s+/g, "").split('/');
         var l = scan.length;
         if (l == 6) {
