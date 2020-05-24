@@ -80,7 +80,13 @@ var app = new Vue({
           qrs[5] = 1;
         }
       }
-      console.log(shakensho);
+      console.log(qrs);
+      for (var q of qrs) {
+        if (q != 1) return shakensho;
+        console.log(q);
+      }
+      console.log(qrs);
+      alert('すべてのQRコードをスキャンしました');
       return shakensho;
     }
   }
