@@ -37,7 +37,7 @@
           </transition-group>
         </section>
       </div>
-      <div class="preview-container">
+      <div class="qr-info">
         <section class="scans">
           <h2>QRコード (左から)</h2>
 <!--           <ul v-if="scans.length === 0">
@@ -52,19 +52,20 @@
             </li>
           </transition-group> -->
           <table>
-          <transition-group name="scans" tag="thead">
-            <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">{{ index+1 }}番目</th></tr>
+            <transition-group name="qrnum" tag="thead">
+              <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">{{ index+1 }}番目</th></tr>
+            </transition-group>
+            <transition-group name="qrbody" tag="thboy">
+              <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">
+                <span v-if="index === 0 || index === 6 || index === 7">不要</span>
+                <span v-else-if="qr == 0">未スキャン</span>
+                <span v-else>スキャン完了</span>
+              </td></tr>
           </transition-group>
-          <transition-group>
-            <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]">
-              <span v-if="index === 0 || index === 6 || index === 7">不要です</span>
-              <span v-else-if="qr == 0">スキャンしてください</span>
-              <span v-else>正しくスキャンできました</span>
-            </td></tr>
-          </transition-group>
-            
           </table>
         </section>
+      </div>
+      <div class="preview-container">
         <video id="preview"></video>
       </div>
     </div>

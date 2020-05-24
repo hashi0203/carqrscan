@@ -68,6 +68,15 @@ body, html {
 .empty {
   font-style: italic;
 }
+
+.qr-info {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
 .preview-container {
   flex-direction: column;
   align-items: center;
