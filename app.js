@@ -1,3 +1,5 @@
+const Instascan = require('instascan');
+
 var app = new Vue({
   el: '#app',
   data: {
