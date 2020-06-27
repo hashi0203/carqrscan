@@ -1,8 +1,8 @@
-INSTA="instascan"
-if [ -d $INSTA ]; then
-	sudo rm -r ${INSTA}
-fi
-git clone https://github.com/hashi0203/instascan.git ${INSTA}
+#INSTA="instascan"
+##if [ -d $INSTA ]; then
+#	sudo rm -r ${INSTA}
+#fi
+#git clone https://github.com/hashi0203/instascan.git ${INSTA}
 MODULES="node_moudles"
 if [ -d $MODULES ]; then
 	rm -r $MODULES

@@ -11,7 +11,7 @@ var app = new Vue({
   },
   mounted: function () {
     var self = this;
-    self.scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5 });
+    self.scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, inferEncoding: true });
     self.scanner.addListener('scan', function (content, image) {
       self.scans.unshift({ date: +(Date.now()), content: content });
     });
@@ -82,12 +82,9 @@ var app = new Vue({
           qrs[5] = 1;
         }
       }
-      console.log(qrs);
       for (var q of qrs) {
         if (q != 1) return shakensho;
-        console.log(q);
       }
-      console.log(qrs);
       alert('すべてのQRコードをスキャンしました');
       return shakensho;
     }
