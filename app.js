@@ -7,7 +7,8 @@ var app = new Vue({
     activeCameraId: null,
     cameras: [],
     scans: [],
-    qrs: [1,0,0,0,0,0,1,1]
+    qrs: [1,0,0,0,0,0,1,1],
+    cartype: 'mid'
   },
   mounted: function () {
     var self = this;
@@ -28,6 +29,9 @@ var app = new Vue({
     });
   },
   methods: {
+    toggle: function(mode) {
+      this.cartype = mode;
+    },
     formatName: function (name) {
       return name || '(unknown)';
     },

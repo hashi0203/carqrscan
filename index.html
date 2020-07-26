@@ -30,11 +30,22 @@
             </li>
           </ul>
         </section>
+        <section class="cartype">
+          <h2>車の種類</h2>
+          <ul>
+            <li><label><input type="radio" name="cartype" @click="toggle('mid')" checked>普通車</label></li>
+            <li><label><input type="radio" name="cartype" @click="toggle('small')">軽自動車</label></li>
+          </ul>
+        </section>
         <section class="shakensho">
-          <h2>Shakensho Content</h2>
-          <transition-group name="scans" tag="ul">
+          <h2>車検証の内容</h2>
+          <transition-group name="scans" tag="ul" v-if="cartype=='mid'">
             <li v-for="item in decode(scans)" :key="item[0]" :title="item[0]">
               <span>{{ item[0] }}: </span><span v-if="item.length >= 2">{{ item[1] }}</span></li>
+          </transition-group>
+          <transition-group name="scans" tag="ul" v-if="cartype=='small'">
+            <!-- <li v-for="item in decode(scans)" :key="item[0]" :title="item[0]">
+              <span>{{ item[0] }}: </span><span v-if="item.length >= 2">{{ item[1] }}</span></li> -->
           </transition-group>
         </section>
       </div>
