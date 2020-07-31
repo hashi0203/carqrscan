@@ -39,14 +39,12 @@
         </section>
         <section class="shakensho">
           <h2>車検証の内容</h2>
-          <transition-group name="scans" tag="ul" v-if="cartype=='mid'">
+
+          <transition-group name="scans" tag="ul">
             <li v-for="item in decode(scans)" :key="item[0]" :title="item[0]">
               <span>{{ item[0] }}: </span><span v-if="item.length >= 2">{{ item[1] }}</span></li>
           </transition-group>
-          <transition-group name="scans" tag="ul" v-if="cartype=='small'">
-            <!-- <li v-for="item in decode(scans)" :key="item[0]" :title="item[0]">
-              <span>{{ item[0] }}: </span><span v-if="item.length >= 2">{{ item[1] }}</span></li> -->
-          </transition-group>
+
         </section>
       </div>
       <div class="col2">
@@ -64,18 +62,32 @@
                 <span v-else>正しくスキャンできました</span>
               </li>
             </transition-group> -->
-            <table width="80%" align="center" border="1">
+
+            <table width="80%" align="center" border="1" v-if="cartype=='mid'">
               <thead><transition-group name="qrnum">
-                <tr><th v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">{{ index+1 }}番目</th></tr>
+                <tr><th v-for="(qr,index) in qrs[0]" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">{{ index+1 }}番目</th></tr>
               </transition-group></thead>
               <tbody><transition-group name="qrbody">
-                <tr><td v-for="(qr,index) in qrs" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">
+                <tr><td v-for="(qr,index) in qrs[0]" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">
                   <span v-if="index === 0 || index === 6 || index === 7">不要</span>
                   <span v-else-if="qr == 0">未スキャン</span>
                   <span v-else>スキャン済</span>
                 </td></tr>
               </transition-group></tbody>
             </table>
+            <table width="80%" align="center" border="1" v-if="cartype=='small'">
+              <thead><transition-group name="qrnum">
+                <tr><th v-for="(qr,index) in qrs[1]" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">{{ index+1 }}番目</th></tr>
+              </transition-group></thead>
+              <tbody><transition-group name="qrbody">
+                <tr><td v-for="(qr,index) in qrs[1]" v-bind:key="['qr-' + index]" v-bind:title="['qr-' + qr]" v-bind:class="['qr-' + qr]" align="center">
+                  <span v-if="index === 5">不要</span>
+                  <span v-else-if="qr == 0">未スキャン</span>
+                  <span v-else>スキャン済</span>
+                </td></tr>
+              </transition-group></tbody>
+            </table>
+
           </section>
         </div>
         <div class="preview-container">
