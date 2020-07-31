@@ -1,0 +1,5 @@
+.vim/
+instascan/
+node_modules/
+package-lock.json
+*.org
